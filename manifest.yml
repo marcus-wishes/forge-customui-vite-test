@@ -1,0 +1,27 @@
+modules:
+    jira:issuePanel:
+        - key: hello-world-jira-hello-world-panel
+          resource: main
+          resolver:
+              function: resolver
+          viewportSize: medium
+          title: hello-world-jira
+          icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
+    function:
+        - key: resolver
+          handler: index.handler
+resources:
+    - key: main
+      path: static/vite/dist
+      tunnel:
+          port: 3000
+permissions:
+    content:
+        styles:
+            - "unsafe-inline"
+    scopes:
+        - read:jira-work
+app:
+    id: ari:cloud:ecosystem::app/7149738b-248b-480c-b96f-4884003cd39a
+    runtime:
+        snapshots: false
